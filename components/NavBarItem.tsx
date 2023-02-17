@@ -8,9 +8,12 @@ interface Props {
 
 function NavBarItem({ title, href, key }: Props) {
   return (
-    <div className="w-full">
-      <a className="bg-[#44475a] " href={href}>{title}</a>
-    </div>
+    <a
+      className="bg-[#44475a] font-bold py-1.5 px-4 rounded-md hover:bg-[#313446] transition "
+      href={href}
+    >
+      {title}
+    </a>
   );
 }
 
