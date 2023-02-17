@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import NavBarItem from "./NavBarItem";
+import { useRouter } from "next/router";
 
 const navItems = [
   {
@@ -21,6 +22,11 @@ const navItems = [
 
 
 export default function Container({children}:any) {
+
+  const {pathname} = useRouter();
+
+  
+
   return (
     <>
       <Head>
@@ -35,9 +41,10 @@ export default function Container({children}:any) {
           <div className="flex mx-2">
             <div className="text-xl flex flex-col gap-y-3">
               {navItems.map(({title, href}, key)=>(
-                <NavBarItem key={key} title={title} href={href} />
+                <NavBarItem key={key} title={title} href={href} current={pathname} />
               ))}
             </div>
+            
             <div className="grow px-3">{children}</div>
           </div>
         </div>
